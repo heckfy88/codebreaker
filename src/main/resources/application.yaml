@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: codebreaker
-  datasource:
-    url:
-    username:
-    password:
-    driver-class-name: org.postgresql.Driver

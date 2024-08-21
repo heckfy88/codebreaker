@@ -20,7 +20,7 @@ public class ProfileHistoryController {
     }
 
     @GetMapping("/{profile}")
-    ProfileHistoryDto getProfileHistory(@PathVariable profile: String) {
+    ProfileHistoryDto getProfileHistory(@PathVariable String profile) {
         return profileHistoryService.getProfileHistory(profile);
     }
 }

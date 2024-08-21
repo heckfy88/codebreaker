@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: codebreaker
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 1978
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    user: postgres
+    password: 1978
+    default-schema: profile
+    contexts: default
