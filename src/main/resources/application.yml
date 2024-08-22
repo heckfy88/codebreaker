@@ -4,12 +4,18 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: 1978
+    password: codebreaker
     driver-class-name: org.postgresql.Driver
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/db.changelog-master.xml
     user: postgres
-    password: 1978
+    password: codebreaker
     default-schema: profile
     contexts: default
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      topic: codebreaker
+      group-id: codebreaker
+      auto-offset-reset: earliest

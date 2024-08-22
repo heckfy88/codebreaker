@@ -18,6 +18,7 @@
         <java.version>17</java.version>
         <jooq.version>3.19.7</jooq.version>
         <liquibase.version>4.29.1</liquibase.version>
+        <modelmapper.version>3.2.1</modelmapper.version>
     </properties>
     <dependencies>
         <dependency>
@@ -71,6 +72,12 @@
             <artifactId>liquibase-core</artifactId>
             <version>${liquibase.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version>
+        </dependency>
+
 
     </dependencies>
 
