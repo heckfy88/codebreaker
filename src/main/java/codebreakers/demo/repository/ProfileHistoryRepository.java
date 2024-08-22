@@ -23,7 +23,13 @@ public class ProfileHistoryRepository {
 
     private static final Long NEW_CLIENT_PROFILE = 1L;
 
+    final
     DSLContext dslContext;
+
+    // TODO not constructor - bug
+    public ProfileHistoryRepository(DSLContext dslContext) {
+        this.dslContext = dslContext;
+    }
 
     CommonTableExpression<Record5<String, Long, Boolean, String, LocalDateTime>> getMasterClientCte(String profile) {
         return name("parent").fields(
@@ -118,7 +124,8 @@ public class ProfileHistoryRepository {
         CommonTableExpression<Record5<String, Long, Boolean, String, LocalDateTime>> parentClient = getMasterClientCte(profile);
         return dslContext.withRecursive(parentClient)
                 .selectFrom(parentClient)
-                .orderBy(parentClient.field(PROFILE_HISTORY.PARENT_PROFILE).isNull())
+                //TODO if orderBy - bug
+                .where(parentClient.field(PROFILE_HISTORY.PARENT_PROFILE).isNull())
                 .fetchOneInto(ProfileHistory.class);
     }
 

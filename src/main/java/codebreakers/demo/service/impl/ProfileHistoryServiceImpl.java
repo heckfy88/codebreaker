@@ -21,7 +21,6 @@ public class ProfileHistoryServiceImpl implements ProfileHistoryService {
         this.dtoConverter = dtoConverter;
     }
 
-
     @Override
     public void processProfileEvent(ProfileChange profileChange) {
         profileHistoryDao.save(profileChange);

@@ -14,9 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class ProfileListener {
 
-    final ProfileChangeService profileChangeService;
-    final ProfileHistoryService profileHistoryService;
-    final ObjectMapper objectMapper;
+    private final ProfileChangeService profileChangeService;
+    private final ProfileHistoryService profileHistoryService;
+    private final ObjectMapper objectMapper;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public ProfileListener(ProfileChangeService profileChangeService, ProfileHistoryService profileHistoryService, ObjectMapper objectMapper) {
