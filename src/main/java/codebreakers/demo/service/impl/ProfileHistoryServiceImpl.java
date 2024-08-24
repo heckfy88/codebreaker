@@ -1,5 +1,6 @@
 package codebreakers.demo.service.impl;
 
+import codebreakers.demo.api.dto.DeactivatedProfileDto;
 import codebreakers.demo.api.dto.ProfileHistoryDto;
 import codebreakers.demo.domain.ProfileChange;
 import codebreakers.demo.domain.ProfileHistory;
@@ -37,10 +38,14 @@ public class ProfileHistoryServiceImpl implements ProfileHistoryService {
             );
         } else {
             List<ProfileHistory> childClients = profileHistoryDao.getChildClients(profile);
+            List<DeactivatedProfileDto> deactivatedProfiles = null;
+            if (!childClients.isEmpty()) {
+                deactivatedProfiles = dtoConverter.convert(childClients);
+            }
             return new ProfileHistoryDto(
                     masterClient.profile(),
                     masterClient.isActive(),
-                    dtoConverter.convert(childClients)
+                    deactivatedProfiles
             );
         }
     }
